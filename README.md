@@ -11,6 +11,7 @@
 ```console
 $ git clone https://github.com/chevalvert/boilerplate-kirby my-kirby-website
 $ cd my-kirby-website
+$ cp www/site/config/credentials.example.php www/site/config/credentials.php
 $ npm install
 $ composer install
 ```
