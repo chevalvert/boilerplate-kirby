@@ -1,4 +1,4 @@
-# boilerplate-kirby <img src='www/assets/favicons/android-chrome-256x256.png' width='100' align='right'>
+# boilerplate-kirby [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
 > Opinionated boilerplate for Kirby 3.x and jsx, built on top of [`kirby-webpack`](https://github.com/brocessing/kirby-webpack/)
 
 <br>
