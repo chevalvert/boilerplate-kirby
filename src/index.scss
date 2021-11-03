@@ -1,0 +1,13 @@
+@import 'sass/reset';
+@import 'sass/fonts';
+@import 'sass/helpers';
+@import 'sass/devices';
+
+:root {}
+
+@import 'sass/base';
+
+main::after {
+  content: 'Hello from SCSS';
+  display: block;
+}

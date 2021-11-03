@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "post-autoload-dump": "node scripts/clean-composer.js"
+  },
+  "require": {
+    "php": ">=7.3.0",
+    "getkirby/cms": "^3.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "vendor-dir": "www/vendor",
+    "bin-dir": "www/vendor/bin"
+  },
+  "extra": {
+    "kirby-cms-path": "www/kirby",
+    "kirby-plugin-path": "www/site/plugins"
+  }
+}

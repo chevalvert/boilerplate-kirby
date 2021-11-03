@@ -1,0 +1,22 @@
+@mixin inset ($d: 0, $position: absolute) {
+  position: $position;
+  top: $d;
+  left: $d;
+  right: $d;
+  bottom: $d;
+}
+
+@mixin debug ($color: red) {
+  outline: 1px solid $color;
+}
+
+@mixin easing ($duration: 600ms, $property: all, $will-change: false) {
+  transition: $property $duration cubic-bezier(.215,.61,.355,1);
+  @if $will-change { will-change: $property; }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

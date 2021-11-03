@@ -1,0 +1,46 @@
+@mixin iphone5SE {
+  @media only screen and (max-width: 340px) {
+    @content;
+  }
+}
+
+@mixin mobile ($orientation: false) {
+  @if $orientation {
+    @media only screen and (max-width: 768px) and (orientation: $orientation) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: 768px) {
+     @content;
+    }
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin big-screen {
+  @media only screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin devices ($device-list...) {
+  @each $device in $device-list {
+    // You cannot dynamically invoke mixins using `@include #{mixin-name}`
+    @if $device == 'iphone5SE' { @include iphone5SE { @content; } }
+    @if $device == 'mobile' { @include mobile { @content; } }
+    @if $device == 'tablet' { @include tablet { @content; } }
+    @if $device == 'desktop' { @include desktop { @content; } }
+    @if $device == 'big-screen' { @include big-screen { @content; } }
+  }
+}
