@@ -25,12 +25,16 @@ export default class Component {
     // Set to true when component is destroyed
     this.destroyed = false
 
-    this.log = logger(
+    this.logger = logger(
       props.name || this.constructor.name || 'Component',
       '#fff',
       '#02024d',
-      props.disableLog
-    ).log
+      props['no-log']
+    )
+
+    this.log = this.logger.log
+    this.warn = this.logger.warn
+    this.error = this.logger.error
   }
 
   storeSubscribe (store, method, context, init = true) {
@@ -64,6 +68,7 @@ export default class Component {
   ref (k) {
     const self = this
     return function updateRef (el) {
+      if (!el && !self.refs) return // Handle destroying ref from another component
       self.refs[k] = el
     }
   }

@@ -4,7 +4,6 @@ class Readable extends Signal {
   constructor (initialValue) {
     super()
     this.current = initialValue
-    this.previous = undefined
   }
 
   set () {

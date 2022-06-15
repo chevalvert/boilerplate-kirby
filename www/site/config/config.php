@@ -1,18 +1,20 @@
 <?php
 
 return array_merge(require_once 'credentials.php', [
-  'cache' => true,
+ 'sitemap.ignore' => ['projects'],
+
+  'panel' => [
+    'css' => 'assets/css/panel.css',
+    'language' => 'fr'
+  ],
+
+  'cache' => [
+    'pages' => [
+      'active' => true
+    ]
+  ],
 
   'routes' => [
-    [ // Quick access to the panel from any page by suffixing url with /panel
-      'pattern' => '(:all)/panel',
-      'action' => function ($id) {
-        if (($page = page($id)) || $page = page("projects/$id")) {
-          return go($page->panelUrl());
-        }
-      }
-    ],
-
     [ // Sitemap
       'pattern' => ['sitemap', 'sitemap.xml', 'sitemap_index.xml'],
       'action'  => function() {

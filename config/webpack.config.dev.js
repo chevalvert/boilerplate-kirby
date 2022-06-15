@@ -38,13 +38,6 @@ module.exports = merge(common, {
             }
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              config: { path: path.resolve(root, 'config', 'postcss.config.js') },
-              sourceMap: true
-            }
-          },
-          {
             loader: 'resolve-url-loader',
             options: { sourceMap: true }
           },

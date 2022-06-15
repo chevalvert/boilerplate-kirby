@@ -1,13 +1,24 @@
 @import 'sass/reset';
 @import 'sass/fonts';
 @import 'sass/helpers';
-@import 'sass/devices';
 
-:root {}
+@mixin mobile {
+  @media only screen and (max-width: 768px) { @content; }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 768px) { @content; }
+}
+
+:root {
+
+  @include mobile {
+  }
+}
+
+@mixin font-size ($suffix: '') {
+  font-size: var(--font-size--#{$suffix}, var(--font-size));
+  line-height: var(--line-height--#{$suffix}, var(--line-height));
+}
 
 @import 'sass/base';
-
-main::after {
-  content: 'Hello from SCSS';
-  display: block;
-}

@@ -1,13 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
-
 const root = path.join(__dirname, '..')
 
+// Add here all templates to bundle
+const TEMPLATES = [
+  'common.js'
+]
+
+const entry = { 'assets/builds/bundle.css': [path.join(root, 'src', 'index.scss')] }
+for (const template of TEMPLATES) entry['assets/builds/' + template] = [path.join(root, 'src', 'templates', template)]
+
 module.exports = {
-  entry: {
-    'assets/builds/bundle.js': [path.join(root, 'src', 'index.js')],
-    'assets/builds/bundle.css': [path.join(root, 'src', 'index.scss')]
-  },
+  entry,
 
   output: {
     publicPath: '/',

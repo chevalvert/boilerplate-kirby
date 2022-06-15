@@ -1,0 +1,7 @@
+{
+  "name": "boilerplate-kirby",
+  "short_name": "boilerplate-kirby",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

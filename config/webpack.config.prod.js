@@ -20,13 +20,6 @@ module.exports = merge(require('./webpack.config.common.js'), {
               }
             },
             {
-              loader: 'postcss-loader',
-              options: {
-                config: { path: path.resolve(__dirname, 'postcss.config.js') },
-                sourceMap: true
-              }
-            },
-            {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
