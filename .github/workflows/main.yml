@@ -4,18 +4,23 @@ on:
     tags:
       - '*'
 
+concurrency:
+  group: 'production'
+  cancel-in-progress: true
+
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+  deploy:
+    environment:
+      name: production
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_SERVER: ${{ vars.FTP_SERVER }}
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         LOCAL_DIR: www
-        REMOTE_DIR: /boilerplate-kirby
+        REMOTE_DIR: ${{ vars.REMOTE_DIR }}
         ARGS: --exclude-glob=content/*
