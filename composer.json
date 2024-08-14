@@ -1,21 +1,14 @@
 {
-  "scripts": {
-    "post-autoload-dump": "node scripts/clean-composer.js"
-  },
+  "type": "project",
+  "license": "MIT",
   "require": {
-    "php": ">=7.4.0",
-    "getkirby/cms": "^3.6"
+    "php": ">=8.3.0",
+    "getkirby/cms": "4.*",
+    "arnoson/kirby-vite": "^5.0.0"
   },
   "config": {
-    "optimize-autoloader": true,
-    "vendor-dir": "www/vendor",
-    "bin-dir": "www/vendor/bin",
     "allow-plugins": {
       "getkirby/composer-installer": true
     }
-  },
-  "extra": {
-    "kirby-cms-path": "www/kirby",
-    "kirby-plugin-path": "www/site/plugins"
   }
 }

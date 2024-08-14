@@ -1,0 +1,19 @@
+$mobile-breakpoint: 768px;
+
+@mixin desktop {
+  @media (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-resolution: 2x) {
+    @content;
+  }
+}

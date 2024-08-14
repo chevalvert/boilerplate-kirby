@@ -1,24 +1,35 @@
-@import 'sass/reset';
-@import 'sass/fonts';
-@import 'sass/helpers';
-
-@mixin mobile {
-  @media only screen and (max-width: 768px) { @content; }
-}
-
-@mixin desktop {
-  @media only screen and (min-width: 768px) { @content; }
-}
+@import '/style/reset';
+@import '/style/fonts';
+@import '/style/prose';
 
 :root {
+  --color-white: #FFF;
+  --color-black: #222;
+
+  --space-gutter: 2rem;
+
+  --body-font-family: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --body-font-size: 1.8rem;
+  --body-line-height: 130%;
+  --body-text-decoration-thickness: 1px;
+  --body-text-underline-offset: 0.2em;
+
+  --title-font-size: 4.0rem;
+  --title-font-weight: 700;
 
   @include mobile {
+    --title-font-size: 6.0rem;
+    --body-font-size: 2.2rem;
+  }
+
+  @include retina {
+    --body-text-decoration-thickness: 15px;
   }
 }
 
-@mixin font-size ($suffix: '') {
-  font-size: var(--font-size--#{$suffix}, var(--font-size));
-  line-height: var(--line-height--#{$suffix}, var(--line-height));
-}
+/* stylelint-disable no-invalid-position-at-import-rule */
 
-@import 'sass/base';
+@import '/style/base';
+@import '/components/Article';
+@import '/components/Hello';
+@import '/views/default';

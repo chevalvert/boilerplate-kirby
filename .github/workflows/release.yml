@@ -1,0 +1,24 @@
+name: Release
+on:
+  push:
+    tags:
+      - '*'
+
+concurrency:
+  group: 'production'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: production
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ${{ vars.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        REMOTE_DIR: ${{ vars.REMOTE_DIR }}
+        ARGS: --exclude-glob=content/*

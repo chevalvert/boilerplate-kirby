@@ -1,47 +1,42 @@
-# boilerplate-kirby [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
-> Opinionated boilerplate for Kirby 3.x and jsx, built on top of [`kirby-webpack`](https://github.com/brocessing/kirby-webpack/)
+# Boilerplate-kirby
+> Opinionated boilerplate for Kirby 4, built on top of [`kirby-vite-multi-page-kit`](https://github.com/arnoson/kirby-vite-multi-page-kit/tree/main)
 
-<br>
+## Requirements
+
+- [Composer](https://formulae.brew.sh/formula/composer)
+- [Node >= 18](https://nodejs.org/en/download/package-manager)
 
 ## Installation
-### By using as a Github template
+
 [Use this template](https://github.com/chevalvert/boilerplate-kirby/generate).
 
-### By cloning and unboiling manually
 ```console
-$ git clone https://github.com/chevalvert/boilerplate-kirby my-kirby-website
-$ cd my-kirby-website
-$ cp www/site/config/credentials.example.php www/site/config/credentials.php
-$ npm install
 $ composer install
+$ yarn install
 ```
-
-##### :bulb: Before starting your project, it is recommanded to unboil it using [brocessing/`unboil`](https://github.com/brocessing/unboil) :
->`unboil` allows you to clean a boilerplate project (files like package.json, readme, git...) to quickly start your own project from it.
-
 
 ## Usage
 
 ```console
-$ npm run start
-$ npm run build
+$ yarn start
 $ composer update getkirby/cms
 ```
 
 ### Deployment
 
-Deployment is done automatically via a [Github action](.github/workflows/main.yml). Simply create a new release by running:
+Deployment is done automatically via a [Github action](.github/workflows/release.yml). Simply create a new release by running:
 ```console
-$ npm version [major|minor|patch]
+$ yarn version
 ```
-<sup>**Important:** some directories are not under version control (`www/kirby`, `www/plugins/*`, see [`.gitignore`](.gitignore)).<br>Deployment for those directories should be done manually.</sup>
+<sup>**Important:** some directories are not under version control (`kirby`, `plugins/*`, see [`.gitignore`](.gitignore)).<br>Deployment for those directories should be done manually.</sup>
 
+## Versioning
+
+Because this is a boilerplate and not a library it doesn’t use semantic versioning.
 
 ## Credits
 
-Built with [**kirby-webpack**](https://github.com/brocessing/kirby-webpack).
-JSX utils heavily based on [**pqml**](https://github.com/pqml)’s work.
+Built on top of **[kirby-vite-multi-page-kit](https://github.com/arnoson/kirby-vite-multi-page-kit/tree/main)**.
 
 ## License
 [MIT.](https://tldrlegal.com/license/mit-license)
-

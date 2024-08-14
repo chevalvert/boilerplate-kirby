@@ -1,0 +1,21 @@
+@font-face {
+  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-display: auto;
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('/assets/your-font-regular.woff2') format('woff2'),
+    url('/assets/your-font-regular.woff') format('woff'),
+    url('/assets/your-font-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-display: auto;
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url('/assets/your-font-bold.woff2') format('woff2'),
+    url('/assets/your-font-bold.woff') format('woff'),
+    url('/assets/your-font-bold.otf') format('opentype');
+}
