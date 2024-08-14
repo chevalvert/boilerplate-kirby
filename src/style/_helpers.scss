@@ -30,15 +30,15 @@
     'font-kerning': auto,
     'line-height': inherit,
     'text-transform': none,
-    'text-underline-offset': inherit
+    'text-underline-offset': inherit,
+    'text-decoration-thickness': from-font
   ) {
     #{$prop}: var(--#{$namespace}-#{$prop}, $default);
   }
-
-  &, * {
-    text-decoration-thickness: var(--text-decoration-thickness-#{$namespace}, from-font);
-  }
 }
+
+// Fix text-decoration-thickness inheritance
+* { text-decoration-thickness: inherit; }
 
 /*
   Define transitions, with a default duration of var(--easing, 120ms):
