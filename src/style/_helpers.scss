@@ -1,0 +1,144 @@
+/*
+  Display an outline around a block to debug its layout
+*/
+@mixin debug ($offset: -1px, $color: red) {
+  outline: 1px solid $color;
+  outline-offset: $offset;
+}
+
+/*
+  Apply a font style defined using CSS variables:
+
+  :root {
+    --<namespace>-<prop1>: <value>;
+    --<namespace>-<prop2>: <value>;
+  }
+
+  selector {
+    @include font(namespace);
+  }
+*/
+@mixin font ($namespace) {
+  @each $prop, $default in (
+    'font-family': inherit,
+    'font-size': inherit,
+    'font-weight': inherit,
+    'font-style': normal,
+    'font-synthesis': none,
+    'font-feature-settings': initial,
+    'font-variant': none,
+    'font-kerning': auto,
+    'line-height': inherit,
+    'text-transform': none,
+    'text-underline-offset': inherit
+  ) {
+    #{$prop}: var(--#{$namespace}-#{$prop}, $default);
+  }
+
+  &, * {
+    text-decoration-thickness: var(--text-decoration-thickness-#{$namespace}, from-font);
+  }
+}
+
+/*
+  Define transitions, with a default duration of var(--easing, 120ms):
+
+  @include easing(opacity);
+  @include easing((opacity, transform), 3000ms)
+  @include easing((opacity, transform), 3000ms, true)
+*/
+@mixin easing ($property: all, $duration: var(--easing, 120ms), $will-change: false) {
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  @if $will-change {
+    will-change: $property;
+  }
+}
+
+/*
+  Prevent user selection inside a block
+*/
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; // stylelint-disable-line property-no-vendor-prefix
+  user-select: none;
+}
+
+/*
+  Expand a block hitbox, ie to simplify touch interaction
+
+  div::after {
+    @include hitbox(3rem);
+  }
+*/
+@mixin hitbox ($expand: 1rem) {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * $expand);
+}
+
+/*
+  Better gradient than native linear-gradient.
+  First color must be a 255 255 255 RGB representation.
+
+  div {
+    --color: 255 255 255;
+    background: smooth-gradient(top top, 255 0 0, transparent);
+    background: smooth-gradient(top top, var(--color), #FF00FF);
+  }
+*/
+@function smooth-gradient($direction: to top, $rgb: 0 0 0, $background: transparent) {
+  // SEE https://larsenwork.com/easing-gradients/
+  @return
+    linear-gradient(
+      $direction,
+      RGBA(#{$rgb} / 100%),
+      RGBA(#{$rgb} / 98.7%) 8.1%,
+      RGBA(#{$rgb} / 95.1%) 15.5%,
+      RGBA(#{$rgb} / 89.6%) 22.5%,
+      RGBA(#{$rgb} / 82.5%) 29%,
+      RGBA(#{$rgb} / 74.1%) 35.3%,
+      RGBA(#{$rgb} / 64.8%) 41.2%,
+      RGBA(#{$rgb} / 55%) 47.1%,
+      RGBA(#{$rgb} / 45%) 52.9%,
+      RGBA(#{$rgb} / 35.2%) 58.8%,
+      RGBA(#{$rgb} / 25.9%) 64.7%,
+      RGBA(#{$rgb} / 17.5%) 71%,
+      RGBA(#{$rgb} / 10.4%) 77.5%,
+      RGBA(#{$rgb} / 4.9%) 84.5%,
+      RGBA(#{$rgb} / 1.3%) 91.9%,
+      RGBA(#{$rgb} / 0%) 100%
+    ),
+    linear-gradient($background, $background);
+}
+
+/*
+  Allow scrolling a container while hiding scrollbars
+  div {
+    @include invisible-scroll;
+    @include invisible-scroll(x);
+    @include invisible-scroll(y);
+  }
+*/
+@mixin invisible-scroll ($direction: x) {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  @if $direction == x {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  } @else if $direction == y {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  } @else {
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    height: 0;
+    background: transparent;
+  }
+}

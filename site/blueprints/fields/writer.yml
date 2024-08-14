@@ -1,0 +1,17 @@
+label: Texte
+type: writer
+
+toolbar:
+  inline: false
+  marks:
+    - bold
+    - italic
+    - strike
+    - link
+    - email
+    - '|'
+    - clear
+  nodes:
+    - paragraph
+    - bulletList
+    - orderedList

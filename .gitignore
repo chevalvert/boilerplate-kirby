@@ -1,65 +1,41 @@
-# Logs
-logs
-*.log
+# Prevent custom plugins to be ignored
+!site/plugins/NAMESPACE-*
 
-# Temporary files
-/media/*
-!/media/index.html
-*.bak
-
-# Node / Runtime files
-.cache
-pids
-*.pid
-*.seed
-.tmp
-node_modules
-npm-debug.log*
-yarn.log
-
-# Editor files
-.history
-
-# System files
-Icon
+# Development
 .DS_Store
-._*
-.Spotlight-V100
-.Trashes
-Thumbs.db
+/.env
+node_modules/
+.vscode
+/site/config/vite.config.php
 
 # Kirby subfolder contents
-/www/content/cover.png*
-/www/content
-/www/content/*/**
+/content/cover.png*
+/content
+/content/*/**
 
-# Kirby composer dependencies
-/www/vendor
-/www/kirby
-/www/site/plugins/*
+# Frontend
+/public/assets/
+/public/dist/
 
-# Prevent custom plugins to be ignored
-!/www/site/plugins/.gitkeep
-!/www/site/plugins/kirby-webpack
-!/www/site/plugins/YOUR_NAMESPACE-*
+# Kirby
+.dev
+kirby
+vendor
+site/plugins/*
 
-# Kirby Temporary files
-/www/media/*
-!/www/media/index.html
+/public/media/*
+!/public/media/index.html
 
-# Kirby Cache Files
-/www/site/cache/*
-!/www/site/cache/index.html
+/storage/accounts/*
+!/storage/accounts/.gitkeep
 
-# Kirby Accounts
-/www/site/accounts/*
-!/www/site/accounts/index.html
+/storage/cache/*
+!/storage/cache/.gitkeep
 
-# Kirby Sessions
-/www/site/sessions/*
-!/www/site/sessions/index.html
+/storage/logs/*
+!/storage/logs/.gitkeep
 
-# Kirby License and API keys
-/www/site/config/.license
-/www/site/config/credentials*.php
-!/www/site/config/credentials.example.php
+/storage/sessions/*
+!/storage/sessions/.gitkeep
+
+/site/config/.license

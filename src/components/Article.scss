@@ -1,0 +1,19 @@
+.article {
+  width: 80rem;
+  max-width: 75ch;
+  margin-inline: auto;
+  margin-top: 5rem;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &__title {
+    @include font('title');
+    margin-bottom: 1em;
+  }
+
+  &__footer {
+    margin-top: var(--space-gutter);
+  }
+}
