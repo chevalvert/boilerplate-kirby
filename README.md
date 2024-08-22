@@ -1,3 +1,5 @@
+# WIP add content by default
+
 # Boilerplate-kirby
 > Opinionated boilerplate for Kirby 4, built on top of [`kirby-vite-multi-page-kit`](https://github.com/arnoson/kirby-vite-multi-page-kit/tree/main)
 
