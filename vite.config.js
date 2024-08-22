@@ -1,3 +1,4 @@
+import { networkInterfaces } from 'os'
 import { globSync } from 'glob'
 import { resolve } from 'path'
 import kirby from 'vite-plugin-kirby'
@@ -7,6 +8,23 @@ const input = globSync([
   'src/index.{js,scss}',
   'src/*.{js,scss}'
 ]).map(path => resolve(process.cwd(), path))
+
+const ips = (() => {
+  const nets = networkInterfaces()
+  const results = {}
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
+      // 'IPv4' is in Node <= 17, from 18 it's a number 4 or 6
+      const familyV4Value = typeof net.family === 'string' ? 'IPv4' : 4
+      if (net.family === familyV4Value && !net.internal) {
+        results[name] ??= []
+        results[name].push(net.address)
+      }
+    }
+  }
+  return results
+})()
 
 export default ({ mode }) => ({
   root: 'src',
@@ -23,8 +41,8 @@ export default ({ mode }) => ({
   },
 
   server: {
-    // WIP dynamic (use by vite-plugin-kirby dev server for assets)
-    host: '192.168.12.120'
+    // Dynamic host so that external browsersync can correctly handle vite assets
+    host: ips.en0[0]
   },
 
   plugins: [
