@@ -1,5 +1,6 @@
 <?php
   $attributes ??= [];
+  $attributes['class'] = 'article ' . ($attributes['class'] ?? '');
 
   $title = $title ?? $slots->title() ?? null;
   $cover = $cover ?? $slots->cover() ?? null;
@@ -7,10 +8,7 @@
   $footer = $footer ?? $slots->footer() ?? null;
 ?>
 
-<article
-  <?= attr($attributes) ?>
-  class='article <?= $attributes['class'] ?? '' ?>'
->
+<article <?= attr($attributes) ?>>
   <header class='article__header'>
     <?php if ($title) : ?>
       <h2 class='article__title'><?= $title ?></h2>
