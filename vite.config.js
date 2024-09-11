@@ -42,7 +42,7 @@ export default ({ mode }) => ({
 
   server: {
     // Dynamic host so that external browsersync can correctly handle vite assets
-    host: ips.en0[0]
+    host: (ips.en0 ?? [])[0] ?? '0.0.0.0'
   },
 
   plugins: [
