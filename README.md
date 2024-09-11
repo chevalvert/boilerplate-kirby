@@ -5,6 +5,7 @@
 
 - [Composer](https://formulae.brew.sh/formula/composer)
 - [Node >= 18](https://nodejs.org/en/download/package-manager)
+- PHP >= 8.3.0
 
 ## Installation
 
@@ -28,7 +29,48 @@ Deployment is done automatically via a [Github action](.github/workflows/release
 ```console
 $ yarn version
 ```
-<sup>**Important:** some directories are not under version control (`kirby`, `plugins/*`, see [`.gitignore`](.gitignore)).<br>Deployment for those directories should be done manually.</sup>
+
+#### First deployment
+
+##### Setup workflow variables
+
+Go to your [repo settings](settings/secrets/actions) and create the necessary variables and secrets for the release workflow:
+
+```bash
+variables / 
+  FTP_SERVER
+  REMOTE_DIR
+
+secrets / 
+  FTP_USERNAME
+  FTP_PASSWORD
+```
+
+##### Manual transfer
+
+Some directories are not under version control. Deployment for those directories should be done manually.
+
+```
+├── kirby
+├── public
+├── site
+│ └── plugins/*
+├── storage
+└── vendor
+```
+
+##### Troubleshooting
+
+If you encounter a bug `Error: Client is closed because read ECONNRESET (data socket)`, create an empty `.ftp-deploy-sync-state.json` to the root folder you try to publish to.
+
+## Server requirements 
+
+###### `php.ini`
+
+```
+extension=php_intl.dll
+extension=intl
+```
 
 ## Versioning
 
