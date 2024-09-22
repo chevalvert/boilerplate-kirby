@@ -31,7 +31,9 @@
     'line-height': inherit,
     'text-transform': none,
     'text-underline-offset': inherit,
-    'text-decoration-thickness': from-font
+    'text-decoration-thickness': from-font,
+    'word-spacing': normal,
+    'letter-spacing': normal
   ) {
     #{$prop}: var(--#{$namespace}-#{$prop}, $default);
   }
