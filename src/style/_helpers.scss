@@ -33,7 +33,8 @@
     'text-underline-offset': inherit,
     'text-decoration-thickness': from-font,
     'word-spacing': normal,
-    'letter-spacing': normal
+    'letter-spacing': normal,
+    'font-variation-settings': initial
   ) {
     #{$prop}: var(--#{$namespace}-#{$prop}, $default);
   }
