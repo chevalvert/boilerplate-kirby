@@ -27,7 +27,7 @@ import lozad from 'lozad'
     }
 
     // Lazyload
-    const lazys = next.container.querySelectorAll('[data-lazyload=true]')
+    const lazys = next.container.querySelectorAll('[data-lazyload]')
     lozad(lazys).observe()
     // Lozad set a [data-loaded] attribute when loading image, but does not detect
     // when image is fully loaded, which can cause incoherent animations
