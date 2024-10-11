@@ -29,7 +29,7 @@ export default class BarbaView {
     this._callHook('afterLeave', data)
 
     for (const k in this.refs) {
-      this.refs[k]?.destroy()
+      this.refs[k]?.destroy?.()
       delete this.refs[k]
     }
 
