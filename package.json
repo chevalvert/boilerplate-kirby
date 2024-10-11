@@ -11,7 +11,7 @@
     "server": "php -S localhost:8888 -t public ./kirby/router.php",
     "build": "vite build",
     "preview": "npm run build && npm run server",
-    "version": "npm run build && git add -f public/dist/*",
+    "version": "npm run build && git add -f public/dist",
     "postversion": "git push && git push --tags"
   },
   "engines": {
