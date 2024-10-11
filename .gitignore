@@ -1,6 +1,3 @@
-# Prevent custom plugins to be ignored
-!site/plugins/NAMESPACE-*
-
 # Development
 .DS_Store
 /.env
@@ -18,6 +15,9 @@ node_modules/
 kirby
 vendor
 site/plugins/*
+
+# Prevent custom plugins to be ignored
+!site/plugins/NAMESPACE-*
 
 /public/media/*
 !/public/media/index.html
