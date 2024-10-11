@@ -43,13 +43,13 @@
           "groupName": "Box model",
           "noEmptyLineBetween": true,
           "emptyLineBefore": "threshold",
-          "properties": ["display", "flex-direction", "flex-wrap", "justify-content", "align-items", "grid-template-columns", "grid-template-rows", "gap", "float", "width", "height", "max-width", "max-height", "min-width", "min-height", "padding", "padding-block", "padding-inline", "padding-top", "padding-right", "padding-bottom", "padding-left", "margin", "margin-block", "margin-inline", "margin-top", "margin-right", "margin-bottom", "margin-left", "margin-collapse", "margin-top-collapse", "margin-right-collapse", "margin-bottom-collapse", "margin-left-collapse", "overflow", "overflow-x", "overflow-y", "clip", "clear"]
+          "properties": ["display", "flex-direction", "flex-wrap", "justify-content", "align-items", "grid-template-columns", "grid-template-rows", "gap", "float", "width", "height", "max-width", "max-height", "min-width", "min-height", "padding", "padding-block", "padding-inline", "padding-top", "padding-right", "padding-bottom", "padding-left", "margin", "margin-block", "margin-inline", "margin-top", "margin-right", "margin-bottom", "margin-left", "margin-collapse", "margin-top-collapse", "margin-right-collapse", "margin-bottom-collapse", "margin-left-collapse", "overflow", "overflow-x", "overflow-y", "clip", "clear", "pointer-events", "cursor"]
         },
         {
           "groupName": "Typography",
           "noEmptyLineBetween": true,
           "emptyLineBefore": "threshold",
-          "properties": ["font", "font-family", "font-size", "font-smoothing", "osx-font-smoothing", "font-style", "font-weight", "font-variant", "hyphens", "src", "line-height", "letter-spacing", "word-spacing", "color", "text-align", "text-decoration", "text-decoration-line", "text-decoration-offset", "text-decoration-thickness", "text-decoration-color", "text-indent", "text-overflow", "text-rendering", "text-size-adjust", "text-shadow", "text-transform", "word-break", "word-wrap", "white-space", "vertical-align", "list-style", "list-style-type", "list-style-position", "list-style-image", "pointer-events", "cursor"]
+          "properties": ["font", "font-family", "font-size", "font-smoothing", "osx-font-smoothing", "font-style", "font-weight", "font-variant", "hyphens", "src", "line-height", "letter-spacing", "word-spacing", "color", "text-align", "text-decoration", "text-decoration-line", "text-decoration-offset", "text-decoration-thickness", "text-decoration-color", "text-indent", "text-overflow", "text-rendering", "text-size-adjust", "text-shadow", "text-transform", "word-break", "word-wrap", "white-space", "vertical-align", "list-style", "list-style-type", "list-style-position", "list-style-image"]
         },
         {
           "groupName": "Cosmetics",
