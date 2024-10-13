@@ -31,4 +31,4 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          content/*
+          content/**
