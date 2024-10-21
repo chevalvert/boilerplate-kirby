@@ -51,9 +51,11 @@ secrets /
 Some directories are not under version control. Deployment for those directories should be done manually.
 
 ```
+├── content
 ├── kirby
 ├── public
 ├── site
+│ ├── config/vite.config.php
 │ └── plugins/*
 ├── storage
 └── vendor

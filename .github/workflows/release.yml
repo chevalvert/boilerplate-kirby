@@ -16,6 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Delete zero byte files
+      # Fix a known bug with OpenSSL
       run: |
         find . -size 0c -exec rm -f {} \;
       shell: bash
@@ -32,3 +33,10 @@ jobs:
           **/.git*/**
           **/node_modules/**
           content/**
+          src/**
+          .*rc
+          composer.*
+          npm*
+          package.json
+          vite.config.js
+          yarn*
