@@ -88,8 +88,8 @@
 
   div {
     --color: 255 255 255;
-    background: smooth-gradient(top top, 255 0 0, transparent);
-    background: smooth-gradient(top top, var(--color), #FF00FF);
+    background: smooth-gradient(to top, 255 0 0, transparent);
+    background: smooth-gradient(to top, var(--color), #FF00FF);
   }
 */
 @function smooth-gradient($direction: to top, $rgb: 0 0 0, $background: transparent) {
