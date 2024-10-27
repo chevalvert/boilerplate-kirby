@@ -49,7 +49,7 @@
           "groupName": "Typography",
           "noEmptyLineBetween": true,
           "emptyLineBefore": "threshold",
-          "properties": ["font", "font-family", "font-size", "font-smoothing", "osx-font-smoothing", "font-style", "font-weight", "font-variant", "hyphens", "src", "line-height", "letter-spacing", "word-spacing", "color", "text-align", "text-decoration", "text-decoration-line", "text-decoration-offset", "text-decoration-thickness", "text-decoration-color", "text-indent", "text-overflow", "text-rendering", "text-size-adjust", "text-shadow", "text-transform", "word-break", "word-wrap", "white-space", "vertical-align", "list-style", "list-style-type", "list-style-position", "list-style-image"]
+          "properties": ["font", "font-family", "font-size", "font-smoothing", "osx-font-smoothing", "font-display", "font-style", "font-weight", "hyphens", "ascent-override", "descent-override", "src", "line-height", "letter-spacing", "word-spacing", "color", "text-align", "text-decoration", "text-indent", "text-overflow", "text-rendering", "text-size-adjust", "text-shadow", "text-transform", "word-break", "word-wrap", "white-space", "vertical-align", "list-style", "list-style-type", "list-style-position", "list-style-image"]
         },
         {
           "groupName": "Cosmetics",
