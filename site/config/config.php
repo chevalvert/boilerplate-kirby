@@ -7,9 +7,9 @@ return [
   'date' => [
     'handler' => 'intl',
     'formats' => [
-      'file' => intl('YYYYMMdd'),
-      'iso' => intl('YYYY-MM-dd'),
-      'full' => intl('dd MMMM YYYY')
+      'file' => intl('yyyyMMdd'),
+      'iso' => intl('yyyy-MM-dd'),
+      'full' => intl('dd MMMM yyyy')
     ]
   ],
 
