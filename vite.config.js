@@ -66,6 +66,8 @@ export default ({ mode }) => ({
     devSourcemap: true,
     preprocessorOptions: {
       scss: {
+        api: 'modern-compiler',
+        silenceDeprecations: ['mixed-decls'],
         additionalData: `
           @use '/style/_helpers' as *;
           @use '/style/_devices' as *;
