@@ -48,6 +48,7 @@ export default ({ mode }) => ({
   plugins: [
     kirby({
       watch: [
+        '../site/blueprints/**/*.yml',
         '../site/(templates|snippets|controllers|models|layouts)/**/*.php',
         '../content/**/*.txt'
       ]
