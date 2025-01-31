@@ -5,8 +5,8 @@ import kirby from 'vite-plugin-kirby'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 
 const input = globSync([
-  'src/index.{js,scss}',
-  'src/*.{js,scss}'
+  'src/index.{js,css,scss}',
+  'src/*.{js,css,scss}'
 ]).map(path => resolve(process.cwd(), path))
 
 const ips = (() => {
