@@ -17,3 +17,9 @@ $breakpoint-mobile: 768px;
     @content;
   }
 }
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion) {
+    @content;
+  }
+}
