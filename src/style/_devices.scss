@@ -23,3 +23,9 @@ $breakpoint-mobile: 768px;
     @content;
   }
 }
+
+@mixin debug-view {
+  html[data-hash='debug'] & {
+    @content;
+  }
+}

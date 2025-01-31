@@ -14,6 +14,7 @@
 
   <script>
     document.getElementsByTagName('html')[0].className = 'js'
+    document.getElementsByTagName('html')[0].dataset.hash = encodeURIComponent(window.location.hash.substr(1))
   </script>
 </head>
 
