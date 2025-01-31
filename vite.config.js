@@ -46,17 +46,19 @@ export default ({ mode }) => ({
   },
 
   plugins: [
-    kirby(),
+    kirby({
+      watch: [
+        '../site/(templates|snippets|controllers|models|layouts)/**/*.php',
+        '../content/**/*.txt'
+      ]
+    }),
     VitePluginBrowserSync({
       dev: {
         bs: {
           port: 8080,
           proxy: 'localhost:8888',
           notify: false,
-          codeSync: true,
-          files: [
-            'site/blueprints/**/*.yml'
-          ].map(path => resolve(process.cwd(), path))
+          codeSync: true
         }
       }
     })
