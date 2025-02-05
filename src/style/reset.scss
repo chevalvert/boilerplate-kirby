@@ -7,7 +7,6 @@
 }
 
 html {
-  height: 100%;
   font-size: 62.5%;
   text-size-adjust: 100%;
 }
@@ -20,7 +19,7 @@ body {
   text-rendering: optimizelegibility;
 }
 
-img, picture, video, canvas, svg {
+img, picture, video, canvas, svg, iframe {
   display: block;
   max-width: 100%;
   vertical-align: bottom;
@@ -69,9 +68,17 @@ table {
 }
 
 summary {
+  cursor: pointer;
   list-style: none;
 
   &::-webkit-details-marker {
     display:none;
   }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
 }
