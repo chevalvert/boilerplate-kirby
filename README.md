@@ -77,7 +77,7 @@ extension=intl
 ###### Root directory 
 
 ```
-Root directory entry be: www/public/
+Root directory: www/public/
 ```
 
 ## Versioning
