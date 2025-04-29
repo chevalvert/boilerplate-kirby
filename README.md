@@ -74,6 +74,12 @@ extension=php_intl.dll
 extension=intl
 ```
 
+###### Root directory 
+
+```
+Root directory entry be: www/public/
+```
+
 ## Versioning
 
 Because this is a boilerplate and not a library it doesn’t use semantic versioning.
