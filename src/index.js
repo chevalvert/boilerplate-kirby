@@ -17,7 +17,6 @@ import lozad from 'lozad'
   }
 
   Barba.init({
-    debug: true,
     prevent: ({ el }) => el?.classList?.contains('no-barba'),
     views: views.map(view => view.default),
     transitions: [{
