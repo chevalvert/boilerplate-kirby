@@ -49,7 +49,7 @@ export default ({ mode }) => ({
     kirby({
       watch: [
         '../site/blueprints/**/*.yml',
-        '../site/(templates|snippets|controllers|models|layouts)/**/*.php',
+        '../site/(templates|snippets|controllers|config|models|languages|layouts)/**/*.php',
         '../content/**/*.txt'
       ]
     }),
