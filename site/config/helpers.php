@@ -20,3 +20,9 @@ function menu ($kirby, string $uid, string $icon = 'page') {
     }
   ];
 }
+
+// Dump to PHP console
+function console_dump (mixed $value, bool $clear = true) {
+  if ($clear) error_log("\e[H\e[J");
+  error_log(print_r($value, true));
+}
