@@ -3,7 +3,7 @@
   "license": "MIT",
   "require": {
     "php": ">=8.3.0",
-    "getkirby/cms": "4.*",
+    "getkirby/cms": "5.*",
     "arnoson/kirby-vite": "^5.4.0"
   },
   "config": {
