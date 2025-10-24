@@ -14,6 +14,7 @@
     "custom-property-empty-line-before": false,
     "declaration-empty-line-before": false,
     "scss/at-mixin-parentheses-space-before": false,
+    "scss/at-function-parentheses-space-before": false,
 
     "order/order": [
       { "type": "at-rule" },
@@ -28,7 +29,8 @@
       { "type": "at-rule", "name": "include", "hasBlock": true },
       { "type": "at-rule", "name": "if" },
       { "type": "at-rule", "name": "else" },
-      "rules"
+      "rules",
+      { "type": "at-rule", "name": "return" }
     ],
 
     "order/properties-order": [
@@ -43,7 +45,7 @@
           "groupName": "Box model",
           "noEmptyLineBetween": true,
           "emptyLineBefore": "threshold",
-          "properties": ["display", "flex-direction", "flex-wrap", "justify-content", "align-content", "align-items", "grid-template-columns", "grid-template-rows", "gap", "float", "width", "height", "max-width", "max-height", "min-width", "min-height", "padding", "padding-block", "padding-inline", "padding-top", "padding-right", "padding-bottom", "padding-left", "margin", "margin-block", "margin-inline", "margin-top", "margin-right", "margin-bottom", "margin-left", "margin-collapse", "margin-top-collapse", "margin-right-collapse", "margin-bottom-collapse", "margin-left-collapse", "overflow", "overflow-x", "overflow-y", "clip", "clear", "pointer-events", "cursor"]
+          "properties": ["display", "flex-direction", "flex-wrap", "justify-content", "align-items", "grid-template-columns", "grid-template-rows", "gap", "float", "width", "height", "max-width", "max-height", "min-width", "min-height", "aspect-ratio", "padding", "padding-block", "padding-inline", "padding-top", "padding-right", "padding-bottom", "padding-left", "margin", "margin-block", "margin-inline", "margin-top", "margin-right", "margin-bottom", "margin-left", "margin-collapse", "margin-top-collapse", "margin-right-collapse", "margin-bottom-collapse", "margin-left-collapse", "overflow", "overflow-x", "overflow-y", "clip", "clear", "pointer-events", "cursor"]
         },
         {
           "groupName": "Typography",
