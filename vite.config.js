@@ -37,12 +37,14 @@ export default ({ mode }) => ({
   build: {
     outDir: resolve(process.cwd(), 'public/dist'),
     emptyOutDir: true,
+    sourcemap: true,
     rollupOptions: { input }
   },
 
   server: {
     // Dynamic host so that external browsersync can correctly handle vite assets
-    host: (ips.en0 ?? [])[0] ?? '0.0.0.0'
+    host: (ips.en0 ?? [])[0] ?? '0.0.0.0',
+    cors: true
   },
 
   plugins: [
@@ -50,7 +52,7 @@ export default ({ mode }) => ({
       watch: [
         '../site/blueprints/**/*.yml',
         '../site/(templates|snippets|controllers|config|models|languages|layouts)/**/*.php',
-        '../content/**/*.txt'
+        // '../content/**/*.txt'
       ]
     }),
     VitePluginBrowserSync({
@@ -59,7 +61,8 @@ export default ({ mode }) => ({
           port: 8080,
           proxy: 'localhost:8888',
           notify: false,
-          codeSync: true
+          codeSync: true,
+          ghostMode: false
         }
       }
     })
