@@ -1,4 +1,4 @@
-import BarbaView from '/abstractions/BarbaView'
+import { BarbaView } from '/core/Barba'
 
 export default new BarbaView('default', {
   beforeEnter: function ({ next }) {},

@@ -14,9 +14,31 @@ return [
   ],
 
   'thumbs' => [
-    'presets' => [
-      'default' => ['width' => 1920],
-      'prose' => ['width' => 1080]
+    'driver' => 'im',
+
+    'srcsets' => [
+      'default' => [
+        '200w' => ['width' => 200, 'format' => 'webp'],
+        '600w' => ['width' => 600, 'format' => 'webp'],
+        '800w' => ['width' => 800, 'format' => 'webp'],
+        '1200w' => ['width' => 1200, 'format' => 'webp'],
+        '1600w' => ['width' => 1600, 'format' => 'webp'],
+        '1920w' => ['width' => 1920, 'format' => 'webp']
+      ]
+    ],
+
+    'sizes' => [
+      'default' => '100vw',
+      'small' => '1vw',
+      'half' => implode(',', [
+        '(max-width: 1024px) 100vw',
+        '50vw'
+      ]),
+      'card' => implode(',', [
+        '(max-width: 800px) 100vw',
+        '(max-width: 1024px) 25vw',
+        '20vw'
+      ])
     ]
   ],
 

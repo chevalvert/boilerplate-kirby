@@ -2,55 +2,35 @@
   use \Kirby\Image\Focus;
   if (!($image ?? null)) return;
 
-  $attributes ??= [];
-  $preset ??= 'default';
   $lazyload ??= true;
-  $photoswipe ??= false;
   $caption ??= $image->caption()->kirbytext();
+  $alt ??= Escape::html($alt ?? ($image->parent()->title() . ' (' . $site->title()) . ')');
+  $attributes ??= [];
 
-  $alt = isset($alt)
-    ? Escape::html($alt)
-    : Str::slug($site->title() . '_' . $image->parent()->title()) . '_' . $image->filename();
-
-  $full = $image->thumb('default');
-  $preset = option("thumbs.presets.$preset", option('thumbs.presets.default'));
-  $thumb = $image->thumb($preset);
-  $width = $thumb->width();
-  $height = $thumb->height();
-
-  $focus = Focus::parse($image->focus()) ?? [0.5, 0.5];
+  $sizes ??= option('thumbs.sizes.default');
+  $focus = Focus::parse($image->focus());
 ?>
 
 <figure
   <?= attr($attributes) ?>
   class='image <?= $attributes['class'] ?? '' ?>'
 >
-  <img
-    <?= attr([
-      'data-lazyload' => $lazyload,
-      'data-src' => $lazyload ? $thumb->url() : null,
-      'src' => $lazyload
-        ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 $width $height'%3E%3C/svg%3E"
-        : $thumb->url(),
-      'alt' => $alt,
-      'width' => $width,
-      'height' => $height,
-      'data-full-width' => $full->width(),
-      'data-full-height' => $full->height(),
-      'data-full-src' => $full->url(),
-      'data-photoswipe' => $photoswipe,
-      'draggable' => 'false',
-      'style' => implode(';', [
-        '--focus-x: ' . ($focus[0] ?? 0.5) * 100 . '%',
-        '--focus-y: ' . ($focus[1] ?? 0.5) * 100 . '%'
-      ])
-    ]) ?>
-  >
-  <figcaption>
-    <?= $caption ?>
-  </figcaption>
+  <img <?= attr([
+    'loading' => $lazyload ? 'lazy' : false,
+    'alt' => $alt,
+    'data-src' => $image->thumb(option('thumbs.srcsets.default.1920w'))->url(),
+    'src' => $image->thumb(option('thumbs.srcsets.default.800w'))->url(),
+    'srcset' => $image->srcset(),
+    'sizes' => $sizes,
+    'width' => $image->resize(1920)->width(),
+    'height' => $image->resize(1920)->height(),
+    'decoding' => 'async',
+    'draggable' => 'false',
+    'style' => [
+      "--focus-x: " . ($focus[0] ?? 0.5) * 100 . '%;',
+      '--focus-y: ' . ($focus[1] ?? 0.5) * 100 . '%;'
+    ]
+  ])?>>
 
-  <noscript>
-    <img src='<?= $full->url() ?>' alt='<?= $alt ?>'>
-  </noscript>
+  <figcaption><?= $caption ?></figcaption>
 </figure>

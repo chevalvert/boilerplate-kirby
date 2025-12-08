@@ -1,74 +1,35 @@
-import Barba from '@barba/core'
-import lozad from 'lozad'
+import { bootstrap } from '/core/Barba'
+import mediaReady from '/utils/media-ready'
 
 ;(async () => {
-  const views = [
-    await import('/views/default')
-  ]
-
-  const components = {
-    global: [
-      // Outside barba wrapper
+  bootstrap({
+    views: [
+      await import('/views/default')
     ],
-    local: [
+
+    components: {
+      // Outside barba wrapper
+      global: [],
+
       // Inside barba wrapper
-      await import('/components/Hello')
-    ]
-  }
+      local: [
+        await import('/components/Hello'),
+      ]
+    },
 
-  Barba.init({
-    prevent: ({ el }) => el?.classList?.contains('no-barba'),
-    views: views.map(view => view.default),
-    transitions: [{
-      sync: false,
-      once: data => {
-        try {
-          // Find and hydrate all global components
-          for (const { selector, hydrate } of components.global) {
-            Array.from(document.querySelectorAll(selector)).map(hydrate)
-          }
-        } catch (e) {
-          console.error(e)
-        }
-      }
-    }]
-  })
+    afterEnter: async next => {
+      // Update manually as Barba payload does not include <header>
+      document.title = next.container.dataset.title
 
-  const refs = new Set()
+      // Flag native lazy loading so that we can animate in CSS
+      Promise.all(Array.from(next.container.querySelectorAll('video, [loading="lazy"]')).map(async el => {
+        await mediaReady(el)
+        el.classList.add('is-loaded')
+      }))
 
-  Barba.hooks.afterEnter(({ next }) => {
-    try {
-      // Hydrate all possible components, keeping a ref
-      for (const { selector, hydrate } of components.local) {
-        for (const el of next.container.querySelectorAll(selector)) {
-          refs.add(hydrate(el))
-        }
-      }
-
-      // Lazyload
-      const lazys = next.container.querySelectorAll('[data-lazyload]')
-      lozad(lazys).observe()
-      // Lozad set a [data-loaded] attribute when loading image, but does not detect
-      // when image is fully loaded, which can cause incoherent animations
-      for (const image of lazys) image.onload = () => image.setAttribute('data-decoded', true)
-
-      // Reset scroll position
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-
-      // Flag document as ready
-      document.body.classList.add('is-ready')
-    } catch (e) {
-      console.error(e)
-    }
-  })
-
-  Barba.hooks.afterLeave(() => {
-    try {
-      // Destroy previous components refs if any
-      for (const ref of refs) ref?.destroy?.()
-      refs.clear()
-    } catch (e) {
-      console.error(e)
+      // Reset scroll position, handling url hash
+      if (next?.url.hash) next.container.getElementById(next.url.hash)?.scrollIntoView()
+      else window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     }
   })
 })()
